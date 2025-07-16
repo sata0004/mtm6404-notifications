@@ -1,27 +1,27 @@
 export default [
   {
-    "id": 1,
-    "name": "Charlene Clements",
-    "message": "Sunt aute mollit cupidatat nisi amet laborum et commodo ullamco incididunt velit Lorem labore."
+    id: 1,
+    name: "Payment Received",
+    message: "Your payment of $250 has been successfully processed."
   },
   {
-    "id": 2,
-    "name": "Krystal Glover",
-    "message": "Id enim exercitation ex in in ut proident et ut Lorem veniam."
+    id: 2,
+    name: "New Message",
+    message: "You have a new message from John Doe."
   },
   {
-    "id": 3,
-    "name": "Keller Wood",
-    "message": "Laborum deserunt cillum est qui anim elit culpa ipsum anim dolor."
+    id: 3,
+    name: "System Update",
+    message: "A new system update is available. Please update soon."
   },
   {
-    "id": 4,
-    "name": "Bates Valenzuela",
-    "message": "Adipisicing consequat nisi est laborum minim aliqua id."
+    id: 4,
+    name: "Meeting Reminder",
+    message: "Don't forget your meeting at 3:00 PM today."
   },
   {
-    "id": 5,
-    "name": "Beverly Santana",
-    "message": "Qui excepteur est laboris dolor ad officia in deserunt ipsum."
+    id: 5,
+    name: "Subscription Expiring",
+    message: "Your subscription will expire in 3 days. Renew now to continue."
   }
 ]

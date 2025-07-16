@@ -1,34 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState } from 'react';
+import notificationsData from './notifications';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Notification component to display individual notification
+const Notification = ({ notification, onRemove }) => (
+  <div className="notification card mb-3">
+    <div className="card-body">
+      <h4 className="card-title">{notification.name}</h4>
+      <p className="card-text">{notification.message}</p>
+      <button className="btn btn-danger" onClick={() => onRemove(notification.id)}>Clear</button>
+    </div>
+  </div>
+);
+
+// App component to manage and display notifications
+const App = () => {
+  const [notificationList, setNotificationList] = useState(notificationsData);
+
+  const removeNotification = (id) => {
+    setNotificationList((prevList) => 
+      prevList.filter(notification => notification.id !== id)
+    );
+  };
+
+  const removeAllNotifications = () => {
+    setNotificationList([]);
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="app container mt-5">
+      <header className="mb-4 d-flex justify-content-between align-items-center">
+        <h1>Notifications ({notificationList.length})</h1>
+        <button className="btn btn-danger" onClick={removeAllNotifications}>Clear All</button>
+      </header>
+      <main className="notifications-list">
+        {notificationList.map(notification => (
+          <Notification 
+            key={notification.id} 
+            notification={notification} 
+            onRemove={removeNotification} 
+          />
+        ))}
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
